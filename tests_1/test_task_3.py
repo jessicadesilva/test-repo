@@ -2,7 +2,7 @@ import subprocess
 import sys
 import os
 
-# Add the parent directory to sys.path to enable import of exponentiation_task
+# Add the parent directory to sys.path to enable import of task_3
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import task_3
 
