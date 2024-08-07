@@ -5,15 +5,11 @@ from homework import task_3
 
 def test_import():
     try:
-        # Attempt to import task_2
-        import task_2
-        # If import is successful, try to use a known function or attribute from task_2
-        assert hasattr(task_2, 'factorial'), "task_2 module does not have 'factorial' function"
-    except ImportError:
+        task_3.task_2.factorial(1)
+    except NameError:
         try:
-            # Attempt to import factorial
-            import factorial
-        except ImportError:
+            task_3.factorial(1)
+        except NameError:
             pytest.fail("task_2 module was not imported")
 
 def test_approximate_euler_number():
