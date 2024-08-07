@@ -1,11 +1,4 @@
-import subprocess
-import sys
-import os
-
-# Add the parent directory to sys.path to enable import of task_2
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import task_2
-
 
 def test_list_computations():
     # Import variables from the task script
@@ -56,8 +49,3 @@ def test_printed_output():
     assert (
         result.stdout == expected_output
     ), f"Expected '{expected_output}' but got '{result.stdout}'"
-
-
-if __name__ == "__main__":
-    test_list_computations()
-    test_printed_output()
