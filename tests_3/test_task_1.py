@@ -1,5 +1,3 @@
-import pytest
-
 from homework import task_1
 
 def test_is_even():
@@ -36,9 +34,3 @@ def test_sign_of_number():
     assert task_1.sign_of_number(0) == "Zero", f"Expected sign_of_number(0) to be 'Zero', but got {task_1.sign_of_number(0)}"
     assert task_1.sign_of_number(-0.5) == "Negative", f"Expected sign_of_number(-0.5) to be 'Negative', but got {task_1.sign_of_number(-0.5)}"
     assert task_1.sign_of_number(0.1) == "Positive", f"Expected sign_of_number(0.1) to be 'Positive', but got {task_1.sign_of_number(0.1)}"
-
-if __name__ == "__main__":
-    test_is_even()
-    test_max_of_two()
-    test_is_vowel()
-    test_sign_of_number()
