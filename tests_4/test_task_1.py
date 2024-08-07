@@ -22,26 +22,28 @@ def test_package_import():
   except AttributeError:
     pytest.fail("matplotlib.pyplot was not imported as plt")
 
-# Test for plot_second_derivative_approximation (no visual check, just function call)
-def test_plot_second_derivative_approximation(monkeypatch):
-    def mock_show():
-        pass
-
-    monkeypatch.setattr(plt, "show", mock_show)
-
-    x = 0
+# Test the second_derivative_approximation plotting function
+@pytest.mark.mpl_image_compare
+def test_plot_second_derivative_approximation(mpl_image_path):
+    # Define the parameters
+    x_value = 0
     h_values = [1, 0.1, 0.01]
-    plot_second_derivative_approximation(func, true_second_derivative, x, h_values)
-    # No assertion here; just ensuring the function runs without errors
+    
+    # Generate the plot and save it to a file
+    task_1.plot_second_derivative_approximation(func, true_second_derivative, x_value, h_values, filename='test_plot_second_derivative_approx.png')
+    
+    # The image is saved and will be compared to a reference image
+    return 'test_plot_second_derivative_approx'
 
-# Test for plot_absolute_error (no visual check, just function call)
-def test_plot_absolute_error(monkeypatch):
-    def mock_show():
-        pass
-
-    monkeypatch.setattr(plt, "show", mock_show)
-
-    x = 0
-    h_values = [0.1, 0.01, 0.001]
-    plot_absolute_error(func, true_second_derivative, x, h_values)
-    # No assertion here; just ensuring the function runs without errors
+# Test the plot_absolute_error plotting function
+@pytest.mark.mpl_image_compare
+def test_plot_absolute_errror(mpl_image_path):
+    # Define the parameters
+    x_value = 0
+    h_values = [1, 0.1, 0.01]
+    
+    # Generate the plot and save it to a file
+    task_1.plot_absolute_error(func, true_second_derivative, x_value, h_values, filename='test_plot_absolute_error.png')
+    
+    # The image is saved and will be compared to a reference image
+    return 'test_plot_absolute_error'
