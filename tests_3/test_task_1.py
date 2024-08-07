@@ -1,4 +1,4 @@
-from homework import task_1
+import task_1
 
 def test_is_even():
     assert task_1.is_even(2) == True, f"Expected is_even(2) to be True, but got {task_1.is_even(2)}"
