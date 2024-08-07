@@ -1,10 +1,3 @@
-import subprocess
-import sys
-import os
-
-# Add the parent directory to sys.path to enable import of task_3
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
 import task_3
 
 def test_first_element():
@@ -33,10 +26,3 @@ def test_distance_between():
     assert task_3.distance_between((1, 2), (4, 6)) == 5, f"Expected distance_between((1, 2), (4, 6)) to be 5, but got {task_3.distance_between((1, 2), (4, 6))}"
     assert task_3.distance_between((0, 0), (0, 0)) == 0, f"Expected distance_between((0, 0), (0, 0)) to be 0, but got {task_3.distance_between((0, 0), (0, 0))}"
     assert task_3.distance_between((-1, -1), (-4, -5)) == 5, f"Expected distance_between((-1, -1), (-4, -5)) to be 5, but got {task_3.distance_between((-1, -1), (-4, -5))}"
-
-if __name__ == "__main__":
-    test_first_element()
-    test_last_element()
-    test_first_last_sum()
-    test_distance_from_origin()
-    test_distance_between()
