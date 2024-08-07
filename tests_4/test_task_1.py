@@ -22,7 +22,7 @@ def test_package_import():
   except AttributeError:
     pytest.fail("matplotlib.pyplot was not imported as plt")
 
-# Test the second_derivative_approximation plotting function
+# Test image outputs using pytest-mpl
 @pytest.mark.mpl_image_compare
 def test_plot_second_derivative_approximation(mpl_image_path):
     # Define the parameters
@@ -33,9 +33,9 @@ def test_plot_second_derivative_approximation(mpl_image_path):
     task_1.plot_second_derivative_approximation(func, true_second_derivative, x_value, h_values, filename='test_plot_second_derivative_approx.png')
     
     # The image is saved and will be compared to a reference image
-    return 'test_plot_second_derivative_approx'
+    return 'test_plot_second_derivative_approx.png'
 
-# Test the plot_absolute_error plotting function
+# Test image outputs using pytest-mpl
 @pytest.mark.mpl_image_compare
 def test_plot_absolute_errror(mpl_image_path):
     # Define the parameters
@@ -46,4 +46,4 @@ def test_plot_absolute_errror(mpl_image_path):
     task_1.plot_absolute_error(func, true_second_derivative, x_value, h_values, filename='test_plot_absolute_error.png')
     
     # The image is saved and will be compared to a reference image
-    return 'test_plot_absolute_error'
+    return 'test_plot_absolute_error.png'
