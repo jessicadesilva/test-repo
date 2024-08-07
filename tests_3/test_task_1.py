@@ -1,11 +1,6 @@
 import pytest
-import sys
-import os
 
-# Add the parent directory to sys.path to enable import of task_2
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
-import task_1
+from homework import task_1
 
 def test_is_even():
     assert task_1.is_even(2) == True, f"Expected is_even(2) to be True, but got {task_1.is_even(2)}"
