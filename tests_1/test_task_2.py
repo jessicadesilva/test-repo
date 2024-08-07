@@ -1,4 +1,5 @@
 import task_2
+import subprocess
 
 def test_list_computations():
     # Import variables from the task script
