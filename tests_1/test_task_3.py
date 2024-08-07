@@ -1,5 +1,5 @@
 import task_3
-
+import subprocess
 
 def test_console_output():
     # Run the task script
