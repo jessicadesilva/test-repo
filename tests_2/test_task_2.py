@@ -1,10 +1,3 @@
-import subprocess
-import sys
-import os
-
-# Add the parent directory to sys.path to enable import of task_2
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
 import task_2
 
 def test_average_value():
@@ -30,9 +23,3 @@ def test_midrange():
     assert task_2.midrange(3, 2, 1) == 2, f"Expected midrange(3, 2, 1) to be 2, but got {task_2.midrange(3, 2, 1)}"
     assert task_2.midrange(-1, -2, -3) == -2, f"Expected midrange(-1, -2, -3) to be -2, but got {task_2.midrange(-1, -2, -3)}"
     assert task_2.midrange(0, 0, 0) == 0, f"Expected midrange(0, 0, 0) to be 0, but got {task_2.midrange(0, 0, 0)}"
-
-if __name__ == "__main__":
-    test_average_value()
-    test_max_of_three()
-    test_min_of_three()
-    test_midrange()
