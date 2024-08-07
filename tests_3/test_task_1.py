@@ -1,4 +1,10 @@
 import pytest
+import sys
+import os
+
+# Add the parent directory to sys.path to enable import of task_2
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 import task_1
 
 def test_is_even():
