@@ -1,12 +1,4 @@
-import subprocess
-import sys
-import os
-
-# Add the parent directory to sys.path to enable import of task_1
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
 import task_1
-
 
 def test_exponentiation_result():
     # Import variables from the task script
@@ -38,8 +30,3 @@ def test_printed_output():
     assert (
         console_out.stdout == expected_output
     ), f"Expected '{expected_output}' but got '{console_out.stdout}'"
-
-
-if __name__ == "__main__":
-    test_exponentiation_result()
-    test_printed_output()
