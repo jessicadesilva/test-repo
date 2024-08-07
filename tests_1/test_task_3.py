@@ -4,7 +4,7 @@ import subprocess
 def test_console_output():
     # Run the task script
     result = subprocess.run(
-        ["python", "./homework/task_3.py"], capture_output=True, text=True
+        ["python", "task_3.py"], capture_output=True, text=True
     )
 
     # Check the printed output
