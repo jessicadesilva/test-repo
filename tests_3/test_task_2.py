@@ -1,4 +1,4 @@
-from homework import task_2
+import task_2
 
 def test_product_list():
     assert task_2.product_list([1, 2, 3, 4]) == 24, f"Expected product_list([1, 2, 3, 4]) to be 24, but got {task_2.product_list([1, 2, 3, 4])}"
