@@ -1,7 +1,7 @@
 import pytest
 import math
 
-from homework import task_3
+import task_3
 
 def test_import():
     try:
