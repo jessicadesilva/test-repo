@@ -1,9 +1,3 @@
-import subprocess
-import sys
-import os
-
-# Add the parent directory to sys.path to enable import of task_3
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import task_3
 
 
@@ -28,8 +22,3 @@ def test_console_output():
 def test_message_variable():
     message = task_3.message
     assert message == "Greetings", f"Expected Greetings but got {message}"
-
-
-if __name__ == "__main__":
-    test_console_output()
-    test_message_variable()
