@@ -21,7 +21,7 @@ def test_printed_output():
 
     # Run the task script
     console_out = subprocess.run(
-        ["python", "./homework/task_1.py"], capture_output=True, text=True
+        ["python", "task_1.py"], capture_output=True, text=True
     )
 
     # Check the printed output
