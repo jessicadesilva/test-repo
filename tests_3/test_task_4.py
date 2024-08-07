@@ -1,4 +1,4 @@
-from homework import task_4  # Make sure the task_4 module is imported
+import task_4  # Make sure the task_4 module is imported
 
 def test_is_prime():
     assert task_4.is_prime(-2) == False, "Expected is_prime(-2) to be False"
