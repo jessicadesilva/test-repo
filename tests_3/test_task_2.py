@@ -1,10 +1,4 @@
-import sys
-import os
-
-# Add the parent directory to sys.path to enable import of task_2
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
-import task_2
+from homework import task_2
 
 def test_product_list():
     assert task_2.product_list([1, 2, 3, 4]) == 24, f"Expected product_list([1, 2, 3, 4]) to be 24, but got {task_2.product_list([1, 2, 3, 4])}"
@@ -34,10 +28,3 @@ def test_geometric_series():
     assert task_2.geometric_series(2, 3, 2) == 8, f"Expected geometric_series(2, 3, 2) to be 8, but got {task_2.geometric_series(2, 3, 2)}"
     assert task_2.geometric_series(1, 1, 4) == 4, f"Expected geometric_series(1, 1, 4) to be 4, but got {task_2.geometric_series(1, 1, 4)}"
     assert task_2.geometric_series(3, 0, 3) == 3, f"Expected geometric_series(3, 0, 3) to be 3, but got {task_2.geometric_series(3, 0, 3)}"
-
-if __name__ == "__main__":
-    test_product_list()
-    test_sum_of_squares()
-    test_factorial()
-    test_arithmetic_series()
-    test_geometric_series()
