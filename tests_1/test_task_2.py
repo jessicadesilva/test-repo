@@ -32,7 +32,7 @@ def test_list_computations():
 def test_printed_output():
     # Run the task script
     result = subprocess.run(
-        ["python", "./homework/task_2.py"], capture_output=True, text=True
+        ["python", "task_2.py"], capture_output=True, text=True
     )
 
     sum_numbers = task_2.sum_numbers
