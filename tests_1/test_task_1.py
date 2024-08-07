@@ -1,4 +1,5 @@
 import task_1
+import subprocess
 
 def test_exponentiation_result():
     # Import variables from the task script
