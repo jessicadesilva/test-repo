@@ -1,10 +1,3 @@
-import subprocess
-import sys
-import os
-
-# Add the parent directory to sys.path to enable import of task_1
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
 import task_1
 
 def test_linear_function():
@@ -31,9 +24,3 @@ def test_absolute_value():
     assert task_1.absolute_value(-1) == 1, "Expected absolute_value(-1) to be 1, but got {task_1.absolute_value(-1)}"
     assert task_1.absolute_value(2.5) == 2.5, "Expected absolute_value(2.5) to be 2.5, but got {task_1.absolute_value(2.5)}"
     assert task_1.absolute_value(-2.5) == 2.5, "Expected absolute_value(-2.5) to be 2.5, but got {task_1.absolute_value(-2.5)}"
-
-if __name__=="__main__":
-    test_linear_function()
-    test_constant_function()
-    test_exponential_function()
-    test_absolute_value()
