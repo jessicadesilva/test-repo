@@ -1,20 +1,20 @@
 import pytest
-from homework import task_1
+import task_1
 
 
 # Define a test function and its true second derivative
 def func(x):
-    return x**3
+    return 3 * x**4 - 5 * x**3 + 2 * x**2 - 7 * x + 6
 
 
 def true_second_derivative(x):
-    return 6 * x
+    return 36 * x**2 - 30 * x + 4
 
 
 def test_central_difference_second_derivative():
     assert (
-        task_1.central_difference_second_derivative(func, 0, 0.01) == 0
-    )  # , f"Expected 0 with f(x)=x^3, x=0, h=0.01, but got {task_1.central_difference_second_derivative(func, 0, 0.01)}"
+        task_1.central_difference_second_derivative(func, 3, 1) == pytest.approx(244)
+    ), "\n\nInput: central_difference_second_derivative(f, 3, 1) with f(x) = 3x^4-5x^3+2x^2-7x+6\nExpected output: Approximately 244\n\n"
 
 
 @pytest.mark.parametrize(
@@ -29,7 +29,6 @@ def test_calculate_absolute_error(est: float, true: float, expected: float) -> N
     assert (
         task_1.calculate_absolute_error(est, true) == pytest.approx(expected)
     ), f"\n\nInput: task_1.calculate_absolute_error({est}, {true})\nExpected output: {expected}\n\n"
-    # , f"Expected calculate_absolute_error({est}, {true}) = {expected} but got {task_1.calculate_absolute_error(est, true)}"
 
 
 def test_package_import():
@@ -43,10 +42,9 @@ def test_package_import():
 @pytest.mark.mpl_image_compare
 def test_plot_second_derivative_approximation():
     # Define the parameters
-    x_value = 5
-    h_values = [1, 0.1, 0.01]
+    x_value = 3
+    h_values = [1, 0.5, 0.1, 0.01]
 
-    # Generate the plot and save it to a file
     return task_1.plot_second_derivative_approximation(
         func, true_second_derivative, x_value, h_values
     )
@@ -56,10 +54,9 @@ def test_plot_second_derivative_approximation():
 @pytest.mark.mpl_image_compare
 def test_plot_absolute_error():
     # Define the parameters
-    x_value = 5
-    h_values = [1, 0.1, 0.01]
+    x_value = 3
+    h_values = [1, 0.5, 0.1, 0.01]
 
-    # Generate the plot and save it to a file
     return task_1.plot_absolute_error(
         func,
         true_second_derivative,
