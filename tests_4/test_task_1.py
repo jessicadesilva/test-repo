@@ -54,7 +54,7 @@ def test_plot_second_derivative_approximation():
 
 # Test image outputs using pytest-mpl
 @pytest.mark.mpl_image_compare
-def test_plot_absolute_errror():
+def test_plot_absolute_error():
     # Define the parameters
     x_value = 5
     h_values = [1, 0.1, 0.01]
