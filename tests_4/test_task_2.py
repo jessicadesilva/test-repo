@@ -8,25 +8,46 @@ def test_module_import():
   except AttributeError:
     pytest.fail("task_1 module was not imported")
 
-def test_example_function():
-    assert task_2.example_function(-2) == -219, f"Expected example_function(-2) = -219, but got {task_2.example_function(-2)}"
-    assert task_2.example_function(-1) == 3, f"Expected example_function(-1) = 3, but got {task_2.example_function(-1)}"
-    assert task_2.example_function(-0) == 1, f"Expected example_function(0) = 1, but got {task_2.example_function(0)}"
-    assert task_2.example_function(1) == 5, f"Expected example_function(1) = 5, but got {task_2.example_function(1)}"
-    assert task_2.example_function(2) == 289, f"Expected example_function(2) = 289, but got {task_2.example_function(2)}"
-    assert task_2.example_function(3) == 2265, f"Expected example_function(3) = 2265, but got {task_2.example_function(3)}"
+@pytest.mark.parametrize(
+    "input, expected",
+    (
+        (-2, -219),
+        (-1, 3),
+        (0, 1),
+        (1, 5),
+        (2, 289),
+        (3, 2265),
+    ),
+)
+def test_example_function(input: float, expected: float) -> None:
+    assert (
+        task_2.example_function(input) == expected
+    ), f"\n\nInput: example_function({input})\nExpected output: {expected}\n\n"
 
-def test_true_second_derivative():
-  assert task_2.true_second_derivative(-2) == -776, f"Expected true_second_derivative(-1) = -776, but got {task_2.true_second_derivative(-2)}"
-  assert task_2.true_second_derivative(-1) == -82, f"Expected true_second_derivative(-1) = -82, but got {task_2.true_second_derivative(-1)}"
-  assert task_2.true_second_derivative(0) == 0, f"Expected true_second_derivative(0) = 0, but got {task_2.true_second_derivative(0)}"
-  assert task_2.true_second_derivative(1) == 82, f"Expected true_second_derivative(1) = 82, but got {task_2.true_second_derivative(1)}"
+@pytest.mark.parametrize(
+    "input, expected",
+    (
+        (-2, -776),
+        (-1, -82),
+        (0, 0),
+        (1, 82),
+    ),
+)
+def test_true_second_derivative(input: float, expected: float) -> None:
+  assert (
+        task_2.true_second_derivative(input) == expected
+    ), f"\n\nInput: true_second_derivative({input})\nExpected output: {expected}\n\n"
+
+def test_variable_definitions():
+  assert task_2.x_value == 4, "\n\nInput: x_value\nExpected output: 4\n\n"
+  assert task_2.h_values == [1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.001953125, 0.0009765625],
+  "\n\nInput: h_values\nExpected output: [1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.001953125, 0.0009765625]\n\n"
 
 @patch('task_1.plot_second_derivative_approximation')
 def test_plot_second_derivative_approximation(mock_plot):
     # Call the function with the expected parameters
     x_value = 4
-    h_values = [2**(-x) for x in range(11)]
+    h_values = [1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.001953125, 0.0009765625]
     task_1.plot_second_derivative_approximation(task_2.example_function, task_2.true_second_derivative, x_value, h_values)
 
     # Define the expected arguments
@@ -39,7 +60,7 @@ def test_plot_second_derivative_approximation(mock_plot):
 def test_plot_absolute_difference(mock_plot):
     # Call the function with the expected parameters
     x_value = 4
-    h_values = [2**(-x) for x in range(11)]
+    h_values = [1, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625, 0.0078125, 0.00390625, 0.001953125, 0.0009765625]
     task_1.plot_absolute_difference(task_2.example_function, task_2.true_second_derivative, x_value, h_values)
 
     # Define the expected arguments
