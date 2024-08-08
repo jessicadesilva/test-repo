@@ -1,28 +1,74 @@
+import pytest
 import task_3
 
-def test_first_element():
-    assert task_3.first_element([1, 2, 3]) == 1, f"Expected first_element([1, 2, 3]) to be 1, but got {task_3.first_element([1, 2, 3])}"
-    assert task_3.first_element([1]) == 1, f"Expected first_element([1]) to be 1, but got {task_3.first_element([1])}"
-    assert task_3.first_element(['a', 'b', 'c']) == 'a', f"Expected first_element(['a', 'b', 'c']) to be 'a', but got {task_3.first_element(['a', 'b', 'c'])}"
-    assert task_3.first_element([True, False]) == True, f"Expected first_element([True, False]) to be True, but got {task_3.first_element([True, False])}"
 
-def test_last_element():
-    assert task_3.last_element([1, 2, 3]) == 3, f"Expected last_element([1, 2, 3]) to be 3, but got {task_3.last_element([1, 2, 3])}"
-    assert task_3.last_element([1]) == 1, f"Expected last_element([1]) to be 1, but got {task_3.last_element([1])}"
-    assert task_3.last_element(['a', 'b', 'c']) == 'c', f"Expected last_element(['a', 'b', 'c']) to be 'c', but got {task_3.last_element(['a', 'b', 'c'])}"
-    assert task_3.last_element([True, False]) == False, f"Expected last_element([True, False]) to be False, but got {task_3.last_element([True, False])}"
+@pytest.mark.parametrize(
+    "input, expected",
+    (
+        ([1, 2, 3], 1),
+        ([1], 1),
+        (["a", "b", "c"], "a"),
+        ([True, False], True),
+    ),
+)
+def test_first_element(input: list, expected) -> None:
+    assert (
+        task_3.first_element(input) == expected
+    ), f"\n\nInput: first_element({input})\nExpected output: {expected}\n\n"
 
-def test_first_last_sum():
-    assert task_3.first_last_sum([1, 2, 3]) == 4, f"Expected first_last_sum([1, 2, 3]) to be 4, but got {task_3.first_last_sum([1, 2, 3])}"
-    assert task_3.first_last_sum([1]) == 2, f"Expected first_last_sum([1]) to be 2, but got {task_3.first_last_sum([1])}"
-    assert task_3.first_last_sum([4, 3, 2, -1]) == 3, f"Expected first_last_sum([4, 3, 2, -1]) to be 3, but got {task_3.first_last_sum([4, 3, 2, -1])}"
 
-def test_distance_from_origin():
-    assert task_3.distance_from_origin((3, 4)) == 5, f"Expected distance_from_origin((3, 4)) to be 5, but got {task_3.distance_from_origin((3, 4))}"
-    assert task_3.distance_from_origin((0, 0)) == 0, f"Expected distance_from_origin((0, 0)) to be 0, but got {task_3.distance_from_origin((0, 0))}"
-    assert task_3.distance_from_origin((-3, -4)) == 5, f"Expected distance_from_origin((-3, -4)) to be 5, but got {task_3.distance_from_origin((-3, -4))}"
+@pytest.mark.parametrize(
+    "input, expected",
+    (
+        ([1, 2, 3], 3),
+        ([1], 1),
+        (["a", "b", "c"], "c"),
+        ([True, False], False),
+    ),
+)
+def test_last_element(input: list, expected) -> None:
+    assert (
+        task_3.last_element(input) == expected
+    ), f"\n\nInput: last_element({input})\nExpected output: {expected}\n\n"
 
-def test_distance_between():
-    assert task_3.distance_between((1, 2), (4, 6)) == 5, f"Expected distance_between((1, 2), (4, 6)) to be 5, but got {task_3.distance_between((1, 2), (4, 6))}"
-    assert task_3.distance_between((0, 0), (0, 0)) == 0, f"Expected distance_between((0, 0), (0, 0)) to be 0, but got {task_3.distance_between((0, 0), (0, 0))}"
-    assert task_3.distance_between((-1, -1), (-4, -5)) == 5, f"Expected distance_between((-1, -1), (-4, -5)) to be 5, but got {task_3.distance_between((-1, -1), (-4, -5))}"
+
+@pytest.mark.parametrize(
+    "input, expected",
+    (
+        ([1, 2, 3], 4),
+        ([1], 2),
+        ([4, 3, 2, -1], 3),
+    ),
+)
+def test_first_last_sum(input: list, expected: float) -> None:
+    assert (
+        task_3.first_last_sum(input) == expected
+    ), f"\n\nInput: first_last_sum({input})\nExpected output: {expected}\n\n"
+
+
+@pytest.mark.parametrize(
+    "point, expected",
+    (
+        ((3, 4), 5),
+        ((0, 0), 0),
+        ((-3, -4), 5),
+    ),
+)
+def test_distance_from_origin(point: tuple, expected: float) -> None:
+    assert (
+        task_3.distance_from_origin(point) == expected
+    ), f"\n\nInput: distance_from_origin({point})\nExpected output: {expected}\n\n"
+
+
+@pytest.mark.parametrize(
+    "point_1, point_2, expected",
+    (
+        ((1, 2), (4, 6), 5),
+        ((0, 0), (0, 0), 0),
+        ((-1, -1), (-4, -5), 5),
+    ),
+)
+def test_distance_between(point_1: tuple, point_2: tuple, expected: float):
+    assert (
+        task_3.distance_betwee(point_1, point_2) == expected
+    ), f"\n\nInput: distance_between({point_1}, {point_2})\nExpected output: {expected}\n\n"
