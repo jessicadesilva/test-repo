@@ -1,25 +1,51 @@
+import pytest
 import task_2
 
-def test_average_value():
-    assert task_2.average_value(2, 4) == 3, f"Expected average_value(2, 4) to be 3, but got {task_2.average_value(2, 4)}"
-    assert task_2.average_value(0, 0) == 0, f"Expected average_value(0, 0) to be 0, but got {task_2.average_value(0, 0)}"
-    assert task_2.average_value(-2, 2) == 0, f"Expected average_value(-2, 2) to be 0, but got {task_2.average_value(-2, 2)}"
-    assert task_2.average_value(1.5, -1.5) == 0, f"Expected average_value(1, -1) to be 0, but got {task_2.average_value(1, -1)}"
+@pytest.mark.parametrize(
+    "input_1, input_2, expected",
+    (
+        (2, 4, 3),
+        (0, 0, 0),
+        (-2, 2, 0),
+        (1.5, -1.5, 0),
+    ),
+)
+def test_average_value(input_1:float, input_2:float, expected:float) -> None:
+    assert task_2.average_value(input_1, input_2) == expected, f"\n\nInput: average_value({input_1}, {input_2})\nExpected output: {expected}\n\n"
 
-def test_max_of_three():
-    assert task_2.max_of_three(1, 2, 3) == 3, f"Expected max_of_three(1, 2, 3) to be 3, but got {task_2.max_of_three(1, 2, 3)}"
-    assert task_2.max_of_three(3, 2, 1) == 3, f"Expected max_of_three(3, 2, 1) to be 3, but got {task_2.max_of_three(3, 2, 1)}"
-    assert task_2.max_of_three(-1, -2, -3) == -1, f"Expected max_of_three(-1, -2, -3) to be -1, but got {task_2.max_of_three(-1, -2, -3)}"
-    assert task_2.max_of_three(0, 0, 0) == 0, f"Expected max_of_three(0, 0, 0) to be 0, but got {task_2.max_of_three(0, 0, 0)}"
+@pytest.mark.parametrize(
+    "input_1, input_2, input_3, expected",
+    (
+        (1, 2, 3, 3),
+        (3, 2, 1, 3),
+        (-1, -2, -3, -1),
+        (0, 0, 0, 0),
+    ),
+)
+def test_max_of_three(input_1:float, input_2:float, input_3:float, expected:float) -> None:
+    assert task_2.max_of_three(input_1, input_2, input_3) == expected, f"\n\nInput: max_of_three({input_1}, {input_2}, {input_3})\nExpected output: {expected}\n\n"
 
-def test_min_of_three():
-    assert task_2.min_of_three(1, 2, 3) == 1, f"Expected min_of_three(1, 2, 3) to be 1, but got {task_2.min_of_three(1, 2, 3)}"
-    assert task_2.min_of_three(3, 2, 1) == 1, f"Expected min_of_three(3, 2, 1) to be 1, but got {task_2.min_of_three(3, 2, 1)}"
-    assert task_2.min_of_three(-1, -2, -3) == -3, f"Expected min_of_three(-1, -2, -3) to be -3, but got {task_2.min_of_three(-1, -2, -3)}"
-    assert task_2.min_of_three(0, 0, 0) == 0, f"Expected min_of_three(0, 0, 0) to be 0, but got {task_2.min_of_three(0, 0, 0)}"
+@pytest.mark.parametrize(
+    "input_1, input_2, input_3, expected",
+    (
+        (1, 2, 3, 1),
+        (3, 2, 1, 1),
+        (-1, -2, -3, -3),
+        (0, 0, 0, 0),
+    ),
+)
+test_min_of_three(input_1:float, input_2:float, input_3:float, expected:float) -> None:
+    assert task_2.min_of_three(input_1, input_2, input_3) == expected, f"\n\nInput: min_of_three({input_1}, {input_2}, {input_3})\nExpected output: {expected}\n\n
 
-def test_midrange():
-    assert task_2.midrange(1, 2, 3) == 2, f"Expected midrange(1, 2, 3) to be 2, but got {task_2.midrange(1, 2, 3)}"
-    assert task_2.midrange(3, 2, 1) == 2, f"Expected midrange(3, 2, 1) to be 2, but got {task_2.midrange(3, 2, 1)}"
-    assert task_2.midrange(-1, -2, -3) == -2, f"Expected midrange(-1, -2, -3) to be -2, but got {task_2.midrange(-1, -2, -3)}"
-    assert task_2.midrange(0, 0, 0) == 0, f"Expected midrange(0, 0, 0) to be 0, but got {task_2.midrange(0, 0, 0)}"
+@pytest.mark.parametrize(
+    "input_1, input_2, input_3, expected",
+    (
+        (1, 2, 3, 2),
+        (3, 2, 1, 2),
+        (-1, -2, -3, -2),
+        (0, 0, 0, 0),
+        (2, 9, 4, 5.5),
+    ),
+)
+def test_midrange(input_1:float, input_2:float, input_3:float, expected:float) -> None:
+    assert task_2.midrange(input_1, input_2, input_3) == expected, f"\n\nInput: midrange({input_1}, {input_2}, {input_3})\nExpected output: {expected}\n\n"
