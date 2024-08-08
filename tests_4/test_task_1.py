@@ -28,7 +28,7 @@ def test_central_difference_second_derivative():
 def test_calculate_absolute_error(est: float, true: float, expected: float) -> None:
     assert (
         task_1.calculate_absolute_error(est, true) == pytest.approx(expected)
-    ), f"\n\nInput: task_1.calculate_absolute_error({est}, {true})\nExpected output: {expected}\n\n"
+    ), f"\n\nInput: calculate_absolute_error({est}, {true})\nExpected output: {expected}\n\n"
 
 
 def test_package_import():
