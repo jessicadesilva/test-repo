@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch, call
-from task_2
+import task_2
 
 def test_module_import():
   try:
