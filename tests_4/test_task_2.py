@@ -42,7 +42,7 @@ def test_true_second_derivative(input: float, expected: float) -> None:
 
 
 def test_variable_definitions():
-    assert task_2.x0 == 4, "\n\nInput: x0\nExpected output: 4\n\n"
+    assert task_2.x_value == 4, "\n\nInput: x_value\nExpected output: 4\n\n"
     assert (
         task_2.h_values
         == [
