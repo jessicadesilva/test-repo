@@ -66,4 +66,4 @@ def test_import_newtons():
 
 @pytest.mark.mpl_image_compare
 def test_plot_newtons_method():
-    return task_2.plot_newtons_method(f2, (0, 2))
+    return task_2.plot_newtons_method(f2, (0.5, 2))
