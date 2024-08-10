@@ -1,12 +1,9 @@
 import pytest
 from task_1 import newtons_method
 
-
-# Define some test functions and their derivatives
 def f1(x):
     return x**2 - 4
-
-
+    
 def f1_prime(x):
     return 2 * x
 
@@ -14,14 +11,12 @@ def f1_prime(x):
 def f2(x):
     return x**3 - x - 2
 
-
 def f2_prime(x):
     return 3 * x**2 - 1
 
 
 def f3(x):
     return x**3
-
 
 def f3_prime(x):
     return 3 * x**2
