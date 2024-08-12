@@ -3,6 +3,18 @@ import math
 
 import task_1
 
+def test_import_plt():
+    try:
+        task_1.plt.rcdefaults()
+    except AttributeError:
+        pytest.fail("matplotlib.pyplot not imported")
+
+
+def test_import_math():
+    try:
+        task_1.math
+    except AttributeError:
+        pytest.fail("math not imported")
 
 def test_eulers_method_basic():
     # Test with a simple linear ODE dy/dt = y
