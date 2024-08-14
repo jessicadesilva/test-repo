@@ -31,8 +31,11 @@ def test_import_numpy():
 def test_divide_row(A, i, divisor, expected):
     task_2.divide_row(A, i, divisor)
     (
-        np.testing.assert_array_almost_equal(A, expected),
-        f"\n\nInput: divide_row({A}, {i}, {divisor})\nExpected output: {expected}\n\n",
+        np.testing.assert_array_almost_equal(
+            A,
+            expected,
+            err_msg=f"\n\nInput: divide_row({A}, {i}, {divisor})\nExpected output: {expected}\n\n",
+        ),
     )
 
 
@@ -58,8 +61,11 @@ def test_divide_row(A, i, divisor, expected):
 def test_subtract_rows(A, i, j, multiplier, expected):
     task_2.subtract_rows(A, i, j, multiplier)
     (
-        np.testing.assert_array_almost_equal(A, expected),
-        f"\n\nInput: subtract_rows({A}, {i}, {j}, {multiplier})\nExpected output: {expected}\n\n",
+        np.testing.assert_array_almost_equal(
+            A,
+            expected,
+            err_msg=f"\n\nInput: subtract_rows({A}, {i}, {j}, {multiplier})\nExpected output: {expected}\n\n",
+        ),
     )
 
 
@@ -81,6 +87,10 @@ def test_subtract_rows(A, i, j, multiplier, expected):
 def test_gauss_jordan_elimination(A, b, expected):
     result = task_2.gauss_jordan_elimination(A, b)
     (
-        np.testing.assert_array_almost_equal(result, expected, decimal=4),
-        f"\n\nInput: gauss_jordan_elimination({A}, {b})\nExpected output: {expected}\n\n",
+        np.testing.assert_array_almost_equal(
+            result,
+            expected,
+            decimal=4,
+            err_msg=f"\n\nInput: gauss_jordan_elimination({A}, {b})\nExpected output: {expected}\n\n",
+        ),
     )
