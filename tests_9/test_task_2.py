@@ -55,7 +55,7 @@ def test_svd():
             1,  # num_singular_values
             np.array(
                 [[5.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
-            ),  # expected shape of compressed image
+            ),  # expected output of compressed image
         ),
         # Test case 2: 4x4 matrix, retain 2 singular values
         (
@@ -74,7 +74,7 @@ def test_svd():
                     [0.0, 0.0, 0.0, 0.0],
                     [0.0, 0.0, 0.0, 0.0],
                 ]
-            ),  # expected shape of compressed image
+            ),  # expected output of compressed image
         ),
         # Test case 3: Non-square matrix, retain 2 singular values
         (
@@ -84,7 +84,7 @@ def test_svd():
             3,  # num_singular_values
             np.array(
                 [[7.0, 0.0, 0.0], [0.0, 6.0, 0.0], [0.0, 0.0, 5.0], [0.0, 0.0, 0.0]]
-            ),  # expected shape of compressed image
+            ),  # expected output of compressed image
         ),
     ],
 )
@@ -92,7 +92,7 @@ def test_compress_image(U, S, Vt, num_singular_values, expected):
     # Call the compress_image function
     compressed_image = task_2.compress_image(U, S, Vt, num_singular_values)
 
-    # Check if the shape of the compressed image matches the expected shape
+    # Check if the output of the compressed image matches the expected output
     (
         np.testing.assert_almost_equal(
             compressed_image,
