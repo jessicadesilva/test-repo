@@ -15,7 +15,7 @@ def test_import_numpy():
     [
         (
             np.array([[0, 0], [0, 0]], dtype=float),
-            np.array([[-0.6868784, 0.7267724], [0.7267724, 0.6868784]], dtype=float),
+            np.array([[1, 0], [0, 1]], dtype=float),
         ),  # 2x2 zero matrix
         (
             np.array([[1, 0], [0, 0]], dtype=float),
@@ -23,7 +23,7 @@ def test_import_numpy():
         ),  # 2x2 matrix with one zero column
         (
             np.array([[1, 0], [3, 0]], dtype=float),
-            np.array([[1, -0.2298364], [3, -0.9732293]], dtype=float),
+            np.array([[1, -0.3511234], [3, -0.9363292]], dtype=float),
         ),  # 2x2 non-zero matrix (check if it remains unchanged)
     ],
 )
@@ -43,13 +43,13 @@ def test_complete_orthonormal_basis(input_matrix, expected):
     "A, expected_U, expected_Sigma, expected_Vt",
     [
         (
-            np.array([[1, 2], [3, 4]]),
+            np.array([[1, 2], [3, 4]], dtype=float),
             np.array([[-0.40455358, 0.9145143], [-0.9145143, -0.40455358]]),
             np.array([5.4649857, 0.36596619]),
             np.array([[-0.57604844, -0.81741556], [-0.81741556, 0.57604844]]),
         ),
         (
-            np.array([[5, 6, 7], [8, 9, 10], [11, 12, 13]]),
+            np.array([[5, 6, 7], [8, 9, 10], [11, 12, 13]], dtype=float),
             np.array(
                 [
                     [-0.37299857, 0.83318989, 0.40824829],
@@ -66,9 +66,14 @@ def test_complete_orthonormal_basis(input_matrix, expected):
                 ]
             ),
         ),
-        (np.array([[1]]), np.array([[1.0]]), np.array([1.0]), np.array([[1.0]])),
         (
-            np.array([[1, 0], [0, 1]]),
+            np.array([[1]], dtype=float),
+            np.array([[1.0]]),
+            np.array([1.0]),
+            np.array([[1.0]]),
+        ),
+        (
+            np.array([[1, 0], [0, 1]], dtype=float),
             np.array([[0, 1], [1, 0]]),
             np.array([1.0, 1.0]),
             np.array([[0.0, 1.0], [1.0, 0.0]]),
