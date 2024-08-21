@@ -1,4 +1,5 @@
 import pytest
+import task_1
 
 # Parameterized tests for the function f(x)
 @pytest.mark.parametrize("input_value, expected_output", [
@@ -9,4 +10,4 @@ import pytest
     (10, 12) # Test case 5: f(10) should return 12
 ])
 def test_f(input_value, expected_output):
-    assert f(input_value) == expected_output, f"\n\nInput: f({input_value})\nExpected output: {expected_output}\n\n"
+    assert task_1.f(input_value) == expected_output, f"\n\nInput: f({input_value})\nExpected output: {expected_output}\n\n"
