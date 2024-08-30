@@ -70,5 +70,5 @@ def test_distance_from_origin(point: tuple, expected: float) -> None:
 )
 def test_distance_between(point_1: tuple, point_2: tuple, expected: float):
     assert (
-        task_3.distance_betwee(point_1, point_2) == expected
+        task_3.distance_between(point_1, point_2) == expected
     ), f"\n\nInput: distance_between({point_1}, {point_2})\nExpected output: {expected}\n\n"
