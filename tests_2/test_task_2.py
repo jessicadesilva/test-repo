@@ -35,7 +35,7 @@ def test_max_of_three(input_1:float, input_2:float, input_3:float, expected:floa
     ),
 )
 test_min_of_three(input_1:float, input_2:float, input_3:float, expected:float) -> None:
-    assert task_2.min_of_three(input_1, input_2, input_3) == expected, f"\n\nInput: min_of_three({input_1}, {input_2}, {input_3})\nExpected output: {expected}\n\n
+    assert task_2.min_of_three(input_1, input_2, input_3) == expected, f"\n\nInput: min_of_three({input_1}, {input_2}, {input_3})\nExpected output: {expected}\n\n"
 
 @pytest.mark.parametrize(
     "input_1, input_2, input_3, expected",
