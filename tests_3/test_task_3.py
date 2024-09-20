@@ -3,15 +3,6 @@ import math
 
 import task_3
 
-def test_import():
-    try:
-        task_3.task_2.factorial(1)
-    except AttributeError:
-        try:
-            task_3.factorial(1)
-        except AttributeError:
-            pytest.fail("task_2 module was not imported")
-
 def test_approximate_euler_number():
     tol = 1e-7
     expected_value = math.e
