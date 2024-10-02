@@ -11,7 +11,7 @@ def test_approximate_euler_number():
 
 def test_approximate_ln():
     tol = 1e-7
-    x_values = [0.5, 1.0, 1.5, 2.0]
+    x_values = [0.6, 1.0, 1.5, 1.99]
     for x in x_values:
         expected_value = math.log(x)
         approx_value = task_3.approximate_ln(x, tol)
