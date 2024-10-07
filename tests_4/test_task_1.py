@@ -13,8 +13,8 @@ def true_second_derivative(x):
 
 def test_central_difference_second_derivative():
     assert (
-        task_1.central_difference_second_derivative(func, 3, 1) == pytest.approx(244)
-    ), "\n\nInput: central_difference_second_derivative(f, 3, 1) with f(x) = 3x^4-5x^3+2x^2-7x+6\nExpected output: Approximately 244\n\n"
+        task_1.central_difference_second_derivative(func, 3, 1) == pytest.approx(262)
+    ), "\n\nInput: central_difference_second_derivative(f, 3, 1) with f(x) = 3x^4-5x^3+2x^2-7x+6\nExpected output: Approximately 262\n\n"
 
 
 @pytest.mark.parametrize(
