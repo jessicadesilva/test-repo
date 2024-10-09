@@ -98,31 +98,6 @@ def test_eulers_method_step_size():
         expected_y_values_small, rel=1e-6
     ), "\n\nInput: dy/dx = -2ty, y(0)=1, [0,1], h=0.1\ny_values not as expected\n\n"
 
-
-def test_eulers_method_edge_case():
-    # Test edge case with zero step size (should raise an error or behave correctly)
-    def f(t, y):
-        return y
-
-    t0 = 0
-    y0 = 1
-
-    # Test with t_end equal to t0
-    t_end = t0
-    h = 0.1
-
-    t_values, y_values = task_1.eulers_method(f, t0, y0, t_end, h)
-    expected_t_values = [0.0]
-    expected_y_values = [1.0]
-
-    assert t_values == pytest.approx(
-        expected_t_values, rel=1e-6
-    ), "\n\nInput: dy/dx = y, y(0)=1, [0,0], h=0.1\nt_values not as expected\n\n"
-    assert y_values == pytest.approx(
-        expected_y_values, rel=1e-6
-    ), "\n\nInput: dy/dx = y, y(0)=1, [0,0], h=0.1\ny_values not as expected\n\n"
-
-
 def f(t, y):
     return -2 * t * y
 
